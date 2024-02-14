@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Detail</title>
+</head>
+<body>
+    <h1>Todo Detail</h1>
+    <p><strong>Title:</strong> {{ todo.title }}</p>
+    <p><strong>Description:</strong> {{ todo.description }}</p>
+    <p><strong>Due Date:</strong> {{ todo.due_date }}</p>
+    <p><strong>Status:</strong> {% if todo.status %}Completed{% else %}Pending{% endif %}</p>
+    <a href="{% url 'todo_list' %}">Back to todo List</a>
+    <form action="{% url 'todo_delete' todo.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>

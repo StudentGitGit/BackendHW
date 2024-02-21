@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo Lists</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo Lists</h1>
+        <ul class="list-group">
+            {% for todo_list in todo_lists %}
+            <li class="list-group-item"><a href="{% url 'todo-list-details' todo_list.id %}">{{ todo_list.title }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'todo-list-create' %}" class="btn btn-primary mt-3">Create New Todo List</a>
+    </div>
+</body>
+</html>
